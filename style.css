@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --moderate-violet: hsl(263, 55%, 52%);
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --white: hsl(0, 0%, 100%);
+
+    /* Neutral Colors */
+    --light-gray: hsl(0, 0%, 81%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* General Styles */
+body {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
+    font-size: calc(13 / 16 * 1rem + 0.3vh);
+}
+
+/* Card Styles */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    width: 85vw;
+    margin: 40px auto 20px auto;
+}
+
+.card {
+    padding: 2vw;
+
+    border-radius: 10px;
+    box-shadow: 10px 10px 29px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card:nth-child(1) {
+    background-color: var(--moderate-violet);
+    background-image: url(./images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: top right 20%;
+    color: var(--light-grayish-blue);
+}
+
+.card:nth-child(2) {
+    background-color: var(--very-dark-grayish-blue);
+    color: var(--light-gray);
+}
+
+.card:nth-child(3) {
+    background-color: var(--white);
+    color: var(--very-dark-blackish-blue);
+}
+
+.card:nth-child(4) {
+    background-color: var(--very-dark-blackish-blue);
+    color: var(--light-grayish-blue);
+}
+
+.card:nth-child(5) {
+    background-color: var(--white);
+    color: var(--very-dark-grayish-blue);
+}
+
+.card__student-id {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 3px;
+    column-gap: 20px;
+}
+
+.card__student-image {
+    grid-row-start: 1;
+    grid-row-end: -1;
+    width: 100%;
+
+    border: 2px solid var(--light-grayish-blue);
+    border-radius: 100%;
+}
+
+.card__student-name {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    align-self: end;
+
+    margin: 0;
+    font-weight: 600;
+}
+
+.card__graduate-status {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    align-self: start;
+    margin: 0;
+    opacity: 50%;
+}
+
+.card__testimony-blurb {
+    font-weight: 500;
+    font-size: calc(13 / 16 * 1.3 * 1rem + 0.3vh);
+}
+
+.card__testimony-full {
+    opacity: 50%;
+}
+
+/* Footer Styles */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 800px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .card:nth-child(1) {
+        grid-area: daniel;
+    }
+
+    .card:nth-child(2) {
+        grid-area: johnathan;
+    }
+
+    .card:nth-child(3) {
+        grid-area: jeanette;
+    }
+
+    .card:nth-child(4) {
+        grid-area: patrick;
+    }
+
+    .card:nth-child(5) {
+        grid-area: kira;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "daniel daniel johnathan kira"
+            "jeanette patrick patrick kira";
+    }
+}
